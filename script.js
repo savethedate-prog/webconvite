@@ -5,8 +5,7 @@
 
 const ceremonyDate =
 new Date(2026, 8, 18, 0, 0, 0);
-// Desired displayed days (user override without changing actual dates)
-const desiredDaysCeremony = 87;
+// Use real date difference so days decrement automaticamente
 
 
 /* ===================================
@@ -16,7 +15,6 @@ const desiredDaysCeremony = 87;
 
 const partyDate =
 new Date(2026, 8, 19, 0, 0, 0);
-const desiredDaysParty = 88;
 
 
 function updateCountdowns(){
@@ -28,12 +26,11 @@ function updateCountdowns(){
        CERIMÓNIA
     ========================== */
 
-    const ceremonyDifference = ceremonyDate - now;
 
     // Adjust displayed countdown so it shows the desired number of days
-    const ceremonyDisplayedDays = Math.floor(ceremonyDifference / (1000 * 60 * 60 * 24));
-    const ceremonyAdjustmentMs = (desiredDaysCeremony - ceremonyDisplayedDays) * 24 * 60 * 60 * 1000;
-    const adjustedCeremonyDifference = ceremonyDifference + ceremonyAdjustmentMs;
+    const ceremonyDifference = ceremonyDate - now;
+    // Use real difference so days decrement across sessions
+    const adjustedCeremonyDifference = ceremonyDifference;
 
     const days1 = Math.floor(adjustedCeremonyDifference / (1000 * 60 * 60 * 24));
     const hours1 = Math.floor((adjustedCeremonyDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -63,9 +60,8 @@ function updateCountdowns(){
     ========================== */
 
     const partyDifference = partyDate - now;
-    const partyDisplayedDays = Math.floor(partyDifference / (1000 * 60 * 60 * 24));
-    const partyAdjustmentMs = (desiredDaysParty - partyDisplayedDays) * 24 * 60 * 60 * 1000;
-    const adjustedPartyDifference = partyDifference + partyAdjustmentMs;
+    // Use real difference so days decrement across sessions
+    const adjustedPartyDifference = partyDifference;
 
     const days2 = Math.floor(adjustedPartyDifference / (1000 * 60 * 60 * 24));
     const hours2 = Math.floor((adjustedPartyDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
