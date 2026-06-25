@@ -248,7 +248,7 @@ sendButton.addEventListener(
 
         const message =
 
-`Olá Silvio e Ariel!
+`Olá Sílvio e Ariel!
 
 Nome:
 ${name}
